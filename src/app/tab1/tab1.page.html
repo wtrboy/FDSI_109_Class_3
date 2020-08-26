@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Message Feed
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<!--
+  <ul>
+  <li *ngFor="let p of postToDisplay"> {{ p.message }}</li>
+</ul>
+-->
+
+<ion-card *ngFor="let p of postToDisplay">
+  <ion-item>
+    <ion-card-header>
+    <ion-card-title>{{p.message}}</ion-card-title>
+   <ion-card-subtitle><ion-img *ngIf="p.imageUrl" src="{{p.imageUrl}}"></ion-img></ion-card-subtitle>
+   <ion-card-subtitle class="date">Posted on {{p.timeStamp | date:'dd/MMM/yyyy hh:mm:ss'}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-button fill="outline" slot="end">View</ion-button>
+  </ion-item>
+
+  <ion-card-content>From: {{p.from}}</ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-item href="#" class="ion-activated">
+    <ion-icon name="wifi" slot="start"></ion-icon>
+    <ion-label>Card Link Item 1 activated</ion-label>
+  </ion-item>
+
+  <ion-item href="#">
+    <ion-icon name="wine" slot="start"></ion-icon>
+    <ion-label>Card Link Item 2</ion-label>
+  </ion-item>
+
+  <ion-item class="ion-activated">
+    <ion-icon name="warning" slot="start"></ion-icon>
+    <ion-label>Card Button Item 1 activated</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="walk" slot="start"></ion-icon>
+    <ion-label>Card Button Item 2</ion-label>
+  </ion-item>
+</ion-card>
+
